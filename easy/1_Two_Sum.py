@@ -15,9 +15,10 @@ return [0, 2]
 """
 
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
-        for i in range(len(nums)):
-            for j in range (i+1, (len(nums))):
-                sum = nums[i] + nums[j]
-                if sum == target:
-                    return [i, j]
+    def twoSum(self, nums, target):
+        dictionary = dict()
+        for i, num in enumerate(nums):
+            if num in dictionary:
+                return [dictionary[num], i]
+            else:
+                dictionary[target-num] = i
